@@ -7,8 +7,6 @@ require 'random_data'
   )
 end
 
-Post.find_or_create_by(title: RandomData.random_sentence, body: RandomData.random_paragraph)
-posts = Post.all
 
 100.times do
   Comment.create!(
@@ -16,6 +14,9 @@ posts = Post.all
     body: RandomData.random_paragraph
   )
 end
+
+Post.find_or_create_by(title: RandomData.random_sentence, body: RandomData.random_paragraph)
+posts = Post.all
 
 post = Post.last
 Comment.find_or_create_by(post: post, body: RandomData.random_paragraph)
