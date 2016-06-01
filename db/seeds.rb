@@ -7,6 +7,7 @@ require 'random_data'
   )
 end
 
+posts = Post.all
 
 100.times do
   Comment.create!(
@@ -15,11 +16,11 @@ end
   )
 end
 
-Post.find_or_create_by(title: RandomData.random_sentence, body: RandomData.random_paragraph)
-posts = Post.all
+#Post.find_or_create_by(title: RandomData.random_sentence, body: RandomData.random_paragraph)
 
-post = Post.last
-Comment.find_or_create_by(post: post, body: RandomData.random_paragraph)
+
+#posts = Post.last
+#Comment.find_or_create_by(post: post, body: RandomData.random_paragraph)
 
 puts "Seed finished"
 puts "#{Post.count} posts created"
