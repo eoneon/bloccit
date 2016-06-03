@@ -24,3 +24,4 @@ Comment.find_or_create_by(post: post, body: RandomData.random_paragraph)
 puts "Seed finished"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
+ 
