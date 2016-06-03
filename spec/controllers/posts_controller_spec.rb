@@ -15,13 +15,6 @@ RSpec.describe PostsController, type: :controller do
     end
   end
 
-  # describe "GET #show" do
-  #   it "returns http success" do
-  #     get :show
-  #     expect(response).to have_http_status(:success)
-  #   end
-  # end
-  #
   describe "GET new" do
     it "returns http success" do
       get :new
@@ -45,7 +38,7 @@ RSpec.describe PostsController, type: :controller do
       expect{post :create, post: {title: RandomData.random_sentence, body: RandomData.random_paragraph}}.to change(Post, :count).by(1)
     end
 
-    it "assigs the new poost to @post" do
+    it "assings the new poost to @post" do
       post :create, post: {title: RandomData.random_sentence, body: RandomData.random_paragraph}
       expect(assigns(:post)).to eq Post.last
     end
