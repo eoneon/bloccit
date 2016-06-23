@@ -34,10 +34,12 @@ RSpec.describe User, type: :model do
     end
   end
 
-  # describe "should be a valid user due to capitalization" do
-  #   it "has a capitalized name" do
-  #     let(:name) { "eon mcLeary" }
-  #     expect(user.name).to eq "Eon McLeary"
-  #   end
-  # end
+  describe "valid user" do
+    let(:user_with_valid_name) { User.new(name: "bloccit user", email: "user@bloccit.com", password: "password")}
+    it "should be a valid user due to capitalization callback" do
+      user_with_valid_name.save
+      expect(user_with_valid_name.name).to eq "Bloccit User"
+    end
+
+  end
 end
