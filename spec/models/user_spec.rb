@@ -33,4 +33,11 @@ RSpec.describe User, type: :model do
       expect(user_with_invalid_email).to_not be_valid
     end
   end
+
+  # describe "should be a valid user due to capitalization" do
+  #   it "has a capitalized name" do
+  #     let(:name) { "eon mcLeary" }
+  #     expect(user.name).to eq "Eon McLeary"
+  #   end
+  # end
 end
