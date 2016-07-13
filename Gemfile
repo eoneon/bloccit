@@ -36,3 +36,5 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
+#Figaro allows you to safely store and access sensitive credentials using variables
+gem 'figaro', '1.0'

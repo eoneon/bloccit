@@ -15,6 +15,7 @@ RSpec.describe Post, type: :model do
 
   it { is_expected.to have_many(:comments) }
   it { is_expected.to have_many(:votes) }
+  it { is_expected.to have_many(:favorites) }
 
   it { is_expected.to belong_to(:topic) }
   it { is_expected.to belong_to(:user) }
@@ -59,7 +60,7 @@ RSpec.describe Post, type: :model do
       end
     end
   end
-  
+
   describe "#update_rank" do
     it "calculates the correct rank" do
       post.update_rank
@@ -78,5 +79,4 @@ RSpec.describe Post, type: :model do
       expect(post.rank).to eq (old_rank - 1)
     end
   end
-
 end
