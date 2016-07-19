@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 include SessionsHelper
 
 RSpec.describe PostsController, type: :controller do
