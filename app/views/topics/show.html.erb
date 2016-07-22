@@ -8,7 +8,8 @@
    <div class="col-md-8">
      <p class="lead"><%= @topic.description %></p>
      <p>Posts</p>
-     <% @topic.posts.each do |post| %>
+     <%= render @topic.posts %>
+     <!-- <% @topic.posts.each do |post| %>
        <div class="media">
          <div class="media-body">
            <h4 class="media-heading">
@@ -20,7 +21,8 @@
            </small>
          </div>
        </div>
-     <% end %>
+     <% end %> -->
+
      <p>Sponsored Posts</p>
      <% @topic.sponsored_posts.each do |sponsored_post| %>
        <div class="media">
