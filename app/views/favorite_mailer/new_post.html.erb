@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <!-- note: (1) using absolute url and (2) creating top part of link by accessing topic from post since that is the object we have access to  -->
+    <h1>You just created and are following "<%= @post.title %>", and will be notified of all comments. To unfollow, unfavorite your <%= link_to "post", topic_post_url(@post.topic, @post) %></h1>
+    <p>
+      <%= link_to "View post on site", topic_post_url(@post.topic, @post) %>
+    </p>
+  </body>
+</html>
