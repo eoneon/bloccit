@@ -11,6 +11,20 @@
        <br />
        <%= @topic.description %>
      </p>
+     <div>
+
+     <h3>Comments</h3>
+<!--
+       <% @topic.comments.each do |comment| %>
+         <div class="media">
+           <div class="media-body">
+             <h4 class="media-heading"></h4>
+               <%= comment.body %>
+           </div>
+         </div>
+       <% end %> -->
+     </div>
+
      <% @topic.posts.each do |post| %>
        <div class="media">
          <div class="media-body">
