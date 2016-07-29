@@ -61,6 +61,12 @@ RSpec.describe Post, type: :model do
     end
   end
 
+  describe '#rank' do
+    it "has a meaningful value immediately after a posts's creation" do
+      expect(post.rank).to_not be_nil
+    end
+  end
+
   describe "#update_rank" do
     it "calculates the correct rank" do
       post.update_rank
