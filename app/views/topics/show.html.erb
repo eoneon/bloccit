@@ -15,7 +15,11 @@
 
      <h3>CommentZ</h3>
      <% @topic.comments.each do |comment| %>
-      <%= render partial: "comments/comment", locals: { obj: Topic.new, comment: comment } %>
+      <%= render partial: 'comments/comment', locals: {obj: @topic, comment: comment} %>
+     <% end %>
+
+     <% if current_user %>
+      <%= render partial: 'comments/form', locals: {obj: @topic, comment: Comment.new}  %>
      <% end %>
 
     <h3>Posts</h3>
