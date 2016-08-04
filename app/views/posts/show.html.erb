@@ -17,11 +17,11 @@
    <div>
      <h3>CommentZ</h3>
      <% @post.comments.each do |comment| %>
-      <%= render partial: "comments/comment", locals: {obj: comment.post, comment: comment} %>
+      <%= render partial: 'comments/comment', locals: {commentable: @post, comment: post.comments} %>
      <% end %>
 
      <% if current_user %>
-      <%= render 'comments/form', locals: { obj: Post.new, comment: Comment.new}  %>
+      <%= render partial: 'comments/form', locals: {commentable: @post}  %>
      <% end %>
    </div>
  </div>
