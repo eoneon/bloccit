@@ -8,23 +8,22 @@ class CommentsController < ApplicationController
 
     if @comment.save
       flash[:notice] = "Comment saved successfully."
-      redirect_to [commentable]
+      redirect_to @view
     else
       flash[:alert] = "Comment failed to save."
-      redirect_to [commentable]
+      redirect_to @view
     end
   end
 
   def destroy
-    @post = Post.find(params[:post_id])
-    comment = @post.comments.find(params[:id])
+    comment = @commentable.comments.find(params[:id])
 
     if comment.destroy
       flash[:notice] = "Comment was deleted successfully."
-      redirect_to [@post.topic, @post]
+      redirect_to @view
     else
       flash[:alert] = "Comment couldn't be deleted. Try again."
-      redirect_to [@post.topic, @post]
+      redirect_to @view
     end
   end
 
