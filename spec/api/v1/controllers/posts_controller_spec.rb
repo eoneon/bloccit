@@ -22,30 +22,8 @@ RSpec.describe Api::V1::PostsController, type: :controller do
     end
   end
 
-  context "authenticated and unauthorized user" do
+  context "authenticated users" do
     before do
-      controller.request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Token.encode_credentials(my_user.auth_token)
-    end
-
-    it "PUT update returns http forbidden" do
-      put :update, topic_id: my_topic.id, id: my_post.id, post: {title: "Post Title", body: "Post Body"}
-      expect(response).to have_http_status(403)
-    end
-
-    it "POST create returns http forbidden" do
-      post :create, topic_id: my_topic.id, post: {title: "Post Title", body: "Post Body"}
-      expect(response).to have_http_status(403)
-    end
-
-    it "DELETE destroy returns http forbidden" do
-      delete :destroy, topic_id: my_topic.id, id: my_post.id
-      expect(response).to have_http_status(403)
-    end
-  end
-
-  context "authenticated and authorized users" do
-    before do
-      my_user.admin!
       controller.request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Token.encode_credentials(my_user.auth_token)
       @new_post = build(:post)
     end
