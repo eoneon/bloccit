@@ -1,5 +1,6 @@
 class Api::V1::PostsController < Api::V1::BaseController
   before_action :authenticate_user
+  before_action :authorize_user_for_post, only: [:update, :destroy]
 
   def update
     post = Post.find(params[:id])
@@ -13,7 +14,7 @@ class Api::V1::PostsController < Api::V1::BaseController
 
   def create
     topic = Topic.find(params[:topic_id])
-    post = topic.posts.new(post_params)
+    post = topic.posts.build(post_params)
     post.user = current_user
 
     if post.valid?
@@ -35,6 +36,7 @@ class Api::V1::PostsController < Api::V1::BaseController
   end
 
   private
+
   def post_params
     params.require(:post).permit(:title, :body)
   end
