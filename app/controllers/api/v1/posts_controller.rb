@@ -16,7 +16,7 @@ class Api::V1::PostsController < Api::V1::BaseController
     topic = Topic.find(params[:topic_id])
     post = topic.posts.build(post_params)
     post.user = current_user
-
+    
     if post.valid?
       post.save!
       render json: post, status: 201
